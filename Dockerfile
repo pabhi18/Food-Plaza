@@ -24,6 +24,5 @@ ENV PYTHONPATH=/usr/local/lib/python3.11/site-packages:/usr/local/lib/python3.11
 
 EXPOSE 8000
 
-ENTRYPOINT [ "python3", "manage.py" ]
-
-CMD ["runserver", "0.0.0.0:8000"]
+# Removed ENTRYPOINT and set full command in CMD
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
