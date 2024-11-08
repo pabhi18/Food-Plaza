@@ -39,20 +39,20 @@ securityContext: {}
 
 # Service configuration.
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 80
   targetPort: 8000
 
 # Ingress configuration for the app.
-ingress:
-  enabled: true
-  className: nginx
-  annotations: {}
-  hosts:
-    - host: 44.204.9.254 # Replace with your EC2 public IP or domain name (e.g., myapp.com)
-      paths:
-        - path: /
-          pathType: Prefix
+# ingress:
+#   enabled: true
+#   className: nginx
+#   annotations: {}
+#   hosts:
+#     - host: 44.204.9.254 # Replace with your EC2 public IP or domain name (e.g., myapp.com)
+#       paths:
+#         - path: /
+#           pathType: Prefix
 
 # Resource requests and limits.
 resources:
