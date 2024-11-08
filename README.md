@@ -1,1 +1,1 @@
-<img src="media/media/k8_argocd.drawio.svg" alt="Project logo" width="200">
+<img src="media/media/k8_argocd.drawio.svg" alt="Project logo" width="600">
