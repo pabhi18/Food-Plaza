@@ -3,15 +3,28 @@ kind: ClusterRole
 metadata:
   name: argocd-application-controller-role
 rules:
-  - apiGroups: [""]  # Core API group
-    resources: ["pods", "services", "configmaps", "nodes", "limitranges"]
+  # Core API group
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps", "nodes", "limitranges", "persistentvolumeclaims"]
     verbs: ["get", "list", "watch"]
+  
+  # Apps API group
   - apiGroups: ["apps"]
     resources: ["deployments", "replicasets", "statefulsets", "daemonsets"]
     verbs: ["get", "list", "watch"]
+
+  # Batch API group
   - apiGroups: ["batch"]
     resources: ["jobs", "cronjobs"]
     verbs: ["get", "list", "watch"]
+
+  # ArgoCD specific API group
   - apiGroups: ["argoproj.io"]
     resources: ["applications", "appprojects"]
     verbs: ["get", "list", "watch", "create", "update", "delete"]
+
+  # Storage API group (for PersistentVolumeClaim)
+  - apiGroups: ["storage.k8s.io"]
+    resources: ["persistentvolumeclaims"]
+    verbs: ["get", "list", "watch"]
+
