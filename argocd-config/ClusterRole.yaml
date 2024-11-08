@@ -3,37 +3,15 @@ kind: ClusterRole
 metadata:
   name: argocd-application-controller-role
 rules:
-  - apiGroups:
-      - argoproj.io
-    resources:
-      - appprojects
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups:
-      - ""  # Core API group
-    resources:
-      - limitranges
-      - nodes
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups:
-      - apps
-    resources:
-      - replicasets
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups:
-      - batch
-    resources:
-      - jobs
-    verbs:
-      - get
-      - list
-      - watch
-
+  - apiGroups: [""]  # Core API group
+    resources: ["pods", "services", "configmaps", "nodes", "limitranges"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "replicasets", "statefulsets", "daemonsets"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["batch"]
+    resources: ["jobs", "cronjobs"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["argoproj.io"]
+    resources: ["applications", "appprojects"]
+    verbs: ["get", "list", "watch", "create", "update", "delete"]
