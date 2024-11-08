@@ -12,7 +12,7 @@ COPY . .
 
 # Multi Stage Build 
 
-FROM gcr.io/distroless/python3
+FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -24,6 +24,6 @@ ENV PYTHONPATH=/usr/local/lib/python3.11/site-packages:/usr/local/lib/python3.11
 
 EXPOSE 8000
 
-ENTRYPOINT [ "python3" ]
+ENTRYPOINT [ "python3", "manage.py" ]
 
-CMD ["manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["runserver", "0.0.0.0:8000"]
