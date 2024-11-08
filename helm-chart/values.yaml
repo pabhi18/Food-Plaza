@@ -31,9 +31,10 @@ securityContext: {}
 
 # Service configuration.
 service:
-  type: LoadBalancer
+  type: NodePort   
   port: 80
   targetPort: 8000
+  nodePort: 30000
 
 # Ingress configuration for the app.
 ingress:

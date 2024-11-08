@@ -11,5 +11,8 @@ spec:
       targetPort: {{ .Values.service.targetPort }}
       protocol: TCP
       name: http
+      {{- if eq .Values.service.type "NodePort" }}
+      nodePort: {{ .Values.service.nodePort }}  # Only applies if service type is NodePort
+      {{- end }}
   selector:
     {{- include "helm-chart.selectorLabels" . | nindent 4 }}
