@@ -1,1 +1,1 @@
-FoodPlaza
+<img src="media/media/k8_argocd.drawio.svg" alt="Project logo" width="200">
