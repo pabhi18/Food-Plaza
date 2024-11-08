@@ -11,3 +11,11 @@ rules:
       - get
       - list
       - watch
+  - apiGroups:
+      - ""  # Core API group
+    resources:
+      - limitranges
+    verbs:
+      - get
+      - list
+      - watch
