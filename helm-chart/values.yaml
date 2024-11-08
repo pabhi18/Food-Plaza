@@ -44,8 +44,8 @@ service:
   targetPort: 8000
 
 # Ingress configuration for the app.
-# ingress:
-#   enabled: true
+ingress:
+  enabled: false
 #   className: nginx
 #   annotations: {}
 #   hosts:
